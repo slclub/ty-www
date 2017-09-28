@@ -1,0 +1,20 @@
+<div class="banner">
+	<div style="width:1200px;margin:0 auto;" id="banner-zhuti">
+		<div style="float: left; width:300px;">
+			<img src="{$config.logo}" alt="{$config.title}"/>
+		</div>
+		<div style="float: left; width:900px;">
+			<ul>
+				<!-- php:$list = phpok('menu') -->
+				<!-- loop from=$list.rslist key=$key value=$value id=mindex -->
+				<li {if $highlight== $mindex.num || $menutitle==
+					$value.title} style="background: url('images/button_1.png'); color: white;"{/if}>
+					<a {if $highlight== $mindex.num || $menutitle==
+					$value.title} style="color: white;" {/if} href="{$value.url}"
+					title="{$value.title}" target="{$value.target}">{$value.title}</a>
+				</li>
+				<!-- /loop -->
+			</ul>
+		</div>
+	</div>
+</div>

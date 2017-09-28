@@ -1,0 +1,9 @@
+<div class="pfw mb10">
+	<h3>{$page_rs.title}</h3>
+	<!-- php:$rslist=phpok('_arclist','pid='.$page_rs.id.'&psize=10')-->
+	<dl class="catelist">
+		<!-- loop from=$rslist.rslist key=$key value=$value-->
+		<dt{if $value.id == $rs.id} class="on"{/if}><a href="{$value.url}" title="{$value.title}">{$value.title}</a></dt>
+		<!-- /loop -->
+	</dl>
+</div>
