@@ -154,7 +154,7 @@ class _init_phpok
 
 	public function __destruct()
 	{
-		unset($this);
+		// ;
 	}
 
 	private function init_assign()
@@ -1002,6 +1002,7 @@ class _init_phpok
 				}
 			}
 		}
+		// file_put_contents('/tmp/phpok.log', print_r([$ctrl,$func,__METHOD__,__LINE__],1), 8);
 		$this->_action($ctrl,$func);
 	}
 
@@ -1109,6 +1110,7 @@ class _init_phpok
 		if($this->app_id == 'www' && !$this->site['status'] && !$_SESSION['admin_id']){
 			$this->error($this->site["content"]);
 		}
+
 		$cls->$func_name();
 	}
 
@@ -1355,7 +1357,7 @@ class _init_auto
 
 	public function __destruct()
 	{
-		unset($this);
+		// ;
 	}
 
 	//魔术方法之方法重载
@@ -1461,7 +1463,7 @@ class phpok_control extends _init_auto
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		// ;
 	}
 }
 
@@ -1488,7 +1490,7 @@ class phpok_model extends _init_auto
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		// ;
 	}
 
 	public function site_id($site_id=0)

@@ -18,7 +18,7 @@ class common_lib
 
 	public function __destruct()
 	{
-		unset($this);
+		 ;
 	}
 
 	//取得IP地址

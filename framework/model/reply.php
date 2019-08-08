@@ -18,7 +18,7 @@ class reply_model_base extends phpok_model
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	function get_all($condition="",$offset=0,$psize=30)

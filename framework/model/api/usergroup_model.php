@@ -18,7 +18,7 @@ class usergroup_model extends usergroup_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//通过会员取得会员组信息

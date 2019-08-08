@@ -38,6 +38,7 @@ class project_control extends phpok_control
 			error(P_Lang('您没有阅读权限，请联系网站管理员'),'','error');
 		}
 		$project = $this->call->phpok('_project',array('pid'=>$pid));
+		file_put_contents('/tmp/phpok.log', print_r([$id,$project,__METHOD__],1), 8);
 		$this->phpok_seo($project);
 		$this->assign("page_rs",$project);
 		if($project['parent_id']){

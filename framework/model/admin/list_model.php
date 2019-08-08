@@ -18,7 +18,7 @@ class list_model extends list_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	public function update_status($id,$status=0)

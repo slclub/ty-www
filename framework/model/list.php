@@ -18,7 +18,7 @@ class list_model_base extends phpok_model
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	function ext_fields($mid,$prefix="ext")
@@ -27,7 +27,7 @@ class list_model_base extends phpok_model
 		$rslist = $this->db->get_all($sql);
 		if(!$rslist) return false;
 		if(!$prefix) $prefix = 'ext';
-		$list = "";
+		$list = [];
 		foreach($rslist AS $key=>$value)
 		{
 			$list[] = 'ext.'.$value['identifier'];

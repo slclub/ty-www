@@ -5,7 +5,8 @@ body,div,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,
 body{
 	font-size:14px;
 	font-family:"微软雅黑","宋体","Arial","Arial Narrow","HELVETICA";
-	background:black;
+	background: url('/tpl/www/images/n1_bg.jpg') no-repeat center 0;
+
 	-webkit-text-size-adjust:100%;
 	color:#666;
 }
@@ -108,26 +109,35 @@ div.pfw .adm_reply .adminer{position:absolute;left:5px;color:darkred;}
 	-webkit-text-size-adjust:100%;
 	color:#666;
 	width:100%;
-	height:1220px;
+	height:100%;
 	text-align:center;
 	margin: 0 auto;
+	min-height: 1100px;
+}
+.main .main-box{width:100%; height: 0; 
+	margin: 100px auto 0 auto;min-height: 783px;
+	/*
+	background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 0, 255, 0.0)), to(#fff));
+	filter:alpha(opacity=0 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=white,endcolorstr=white,gradientType=0);
+  	-ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=white,endcolorstr=white,gradientType=0);
+	*/
 }
 /*轮播*/
-.banner1{position:relative;width:100%;height:1080px;margin:0 auto 10px;overflow:hidden}
-.banner1 .bd ul{list-style:none;margin:0;padding:0}
-.banner1 .bd ul li img{max-width:1920px}
-.banner1 .hd{position:absolute;bottom:10px;right:10px;text-align:center}
-.banner1 .hd ul{list-style:none;margin:0;padding:0}
-.banner1 .hd ul li{width:18px;height:18px;background:#000;display:inline-block;+display:inline;zoom:1;margin:0 1px;cursor:pointer;line-height:18px;font-size:0.6em}
-.banner1 .hd ul li.on{background:darkred;color:#fff}
+.banner-bac{position:relative;width:100%;height:100%;margin:0 auto 10px;overflow:hidden}
+.banner-bac .bd ul{list-style:none;margin:0;padding:0}
+.banner-bac .bd ul li img{max-width:1920px}
+.banner-bac .hd{position:absolute;bottom:10px;right:10px;text-align:center}
+.banner-bac .hd ul{list-style:none;margin:0;padding:0}
+.banner-bac .hd ul li{width:18px;height:18px;background:#000;display:inline-block;+display:inline;zoom:1;margin:0 1px;cursor:pointer;line-height:18px;font-size:0.6em}
+.banner-bac .hd ul li.on{background:darkred;color:#fff}
 .banner{
 	width:100%;
 	height:118px;
-	background:url('../images/bg_title.png') right center;
 	float:left;
 	text-align:center;
 	margin: 0 auto;
 	overflow:hidden;
+
 }
 
 .banner ul li{
@@ -155,36 +165,41 @@ div.pfw .adm_reply .adminer{position:absolute;left:5px;color:darkred;}
 	height:351px;
 	float:left;
 	position:absolute;
-	margin-top:840px;
+	margin-top:300px;
 }
-.left{
-	width:860px;
+.zhuti .left{
+	width:50%;
 	float:left;
 }
-.left_img{
+.zhuti .left_img{
 	margin-left:10px;
 	width:32%;
 	float:left;
 }
-.left_img img{
+.zhuti .left_img img{
 	width:100%;
 	height:100%;
 }
-.left_img:hover{
+.zhuti .left_img:hover{
 	background:url('../images/A_K_change.png'); no-repeat;
 }
-.right{
-	width:340px;
+.zhuti .center { float: left; width: 30%;}
+.zhuti .right{
+	width:20%;
 	float:left;
 }
-.right_img{
+.zhuti .right_img{
 	float:left;
 	width:24%;
 }
-.right_img img{
+.zhuti .right_img img{
 	width:100%;height:100%;
 }
 
+.zhuti .opacity{opacity: .7;}
+.zhuti .icon-andriod {width: 100%;background-color: #003; height: 75px; }
+.zhuti .icon-ios{ width: 100%; background-color: #330; height: 75px; display: block;}
+.zhuti .icon-contact{width: 100%; background-color: #333;height: 150px; display: block;}
 
 
 /* div.main{margin:0 auto;width:980px;position:relative;}
@@ -220,8 +235,7 @@ div.main div.right{width:750px;float:right;} */
 .link a{ margin-right:10px;}
 
 
-.foot{ width:100%;color:purple;border-top:1px solid #a972ff;margin-top:10px;}
-.copyright{ width:980px; margin:0 auto; padding:30px 0; color:#402467; line-height:24px;}
+
 
 
 .displaytrue{overflow:hidden;}

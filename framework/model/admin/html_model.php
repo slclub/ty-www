@@ -18,7 +18,7 @@ class html_model extends html_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//获取模板信息

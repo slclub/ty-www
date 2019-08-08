@@ -131,7 +131,7 @@ class db_pdo_mysql extends db
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//定义基本的变量信息

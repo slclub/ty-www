@@ -128,7 +128,7 @@ class db_mysqli extends db
 		if($this->conn && is_object($this->conn)){
 			mysqli_close($this->conn);
 		}
-		unset($this);
+		// ;
 	}
 
 	public function set($name,$value)

@@ -40,7 +40,7 @@ class db
 	public function __destruct()
 	{
 		session_write_close();
-		unset($this);
+		// ;
 	}
 
 	public function database($database='')

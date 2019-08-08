@@ -18,7 +18,7 @@ class tag_model_base extends phpok_model
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//根据指定主题下的可能用到的Tag

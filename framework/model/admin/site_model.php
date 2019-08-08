@@ -18,7 +18,7 @@ class site_model extends site_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	public function save($data,$id=0)

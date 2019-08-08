@@ -18,7 +18,7 @@ class sql_model extends sql_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//读取全部表信息

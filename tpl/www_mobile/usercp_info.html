@@ -21,21 +21,43 @@ $(document).ready(function(){
 	});
 });
 </script>
-<div role="main" class="ui-content">
-	<div class="ui-body">
-		<form method="post" id="userinfo_submit">
-			<input type="hidden" name="avatar" id="avatar" value="{$rs.avatar}" />
+<div class="cp">
+	<div class="left"><!-- include tpl=block_usercp --></div>
+	<div class="right">
+		<div class="pfw mbottom10">
+			<h3>修改个人资料</h3>
+			<form method="post" id="userinfo_submit">
+			<div class="table">
+				<input type="hidden" name="avatar" id="avatar" value="{$rs.avatar}" />
+				<div class="l">&nbsp;</div>
+				<img src="{$rs.avatar ? $rs.avatar : 'images/avatar_huge.gif'}" width="80px" border="0" />
+			</div>
+			<!-- if $rs.email -->
+			<div class="table">
+				<div class="l">邮箱：</div>
+				{$rs.email}
+			</div>
+			<!-- /if -->
+			<!-- if $rs.mobile -->
+			
+			<div class="table">
+				<div class="l">手机：</div>
+				{$rs.mobile}
+			</div>
+			<!-- /if -->
 			<!-- loop from=$extlist key=$key value=$value -->
-			<div>{$value.title}：</div>
-			<div>{$value.html}</div>
+			<div class="table">
+				<div class="l">{$value.title}：</div>
+				{$value.html}
+			</div>
 			<!-- /loop -->
-			<table>
-				<tr>
-					<td><input type="submit" value="修改资料" data-theme="b" /></td>
-					<td><input type="button" value="返回个人中心" onclick="$.phpok.go('{url ctrl=usercp/}')" /></td>
-				</tr>
-			</table>
-		</form>
+			<div class="table">
+				<div class="l">&nbsp;</div>
+				<input type="submit" value="修改资料" class="button blue" />
+			</div>
+			</form>
+		</div>
 	</div>
+	<div class="clear"></div>
 </div>
 <!-- include tpl=foot -->

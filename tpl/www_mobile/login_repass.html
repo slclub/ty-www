@@ -1,4 +1,4 @@
-<!-- include tpl=head title=重新设置密码 -->
+<!-- include tpl=head menutitle=网站首页 title=重新设置密码 -->
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#repass-form').submit(function(){
@@ -7,15 +7,16 @@ $(document).ready(function(){
 			type:'post',
 			dataType:'json',
 			success:function(rs){
-				if(rs.status == 'ok'){
-					$.dialog.alert("您的密码修改成功，请登录",function(){
-						$.phpok.go("{url ctrl=login/}")
-					},'succeed');
-				}else{
-					if(!rs.content){
-						rs.content = '操作失败，请联系管理员。';
-					}
-					$.dialog.alert(rs.content);
+				if(rs.status == 'ok')
+				{
+					alert("您的密码修改成功，请登录");
+					var go_url = get_url('login','','_back='+$.str.encode('index.php'));
+					$.phpok.go(go_url);
+				}
+				else
+				{
+					if(!rs.content) rs.content = '操作失败，请联系管理员。';
+					alert(rs.content);
 					return false;
 				}
 			}
@@ -24,30 +25,39 @@ $(document).ready(function(){
 	});
 });
 </script>
-<div role="main" class="ui-content">
-	<form method="post" id="repass-form">
-	<input class="input" type="text" name="email" value="{$user.email}" placeholder="Email，请填写您的Email信息"{if $code && $user.email} readonly{/if} />
-	<input class="input" type="text" name="user" value="{$user.user}" placeholder="会员账号"{if $code && $user.user} readonly{/if} />
-	<input class="input" type="text" name="code" value="{$user.code}" placeholder="系统验证串"{if $code && $user.code} readonly{/if} />
-	<input class="input" type="password" name="newpass" placeholder="设置密码，建议大小写字母+数据+特殊符号" />
-	<input class="input" type="password" name="chkpass" placeholder="请再次输入密码" />
-	<!-- if $sys.is_vcode && function_exists("imagecreate") -->
-	<label>验证码：<input class="vcode"  type="text" name="_chkcode" id="_chkcode" data-role="none" /><img src="" border="0" align="absmiddle" id="vcode" class="hand" /></label>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$("#vcode").phpok_vcode();
-		$("#vcode").click(function(){
-			$(this).phpok_vcode();
+<div class="login-reg">
+	<dl class="box">
+		<dt>重新设置密码</dt>
+		<form method="post" id="repass-form">
+		<dd><label>邮箱：</label><input class="input" type="text" name="email" value="{$user.email}" readonly /><div class="clear"></div></dd>
+		<dd><label>账号：</label><input class="input" type="text" name="user" value="{$user.user}" readonly /><div class="clear"></div></dd>
+		<dd><label>验证串：</label><input class="input" type="text" name="code" value="{$user.code}" readonly /><div class="clear"></div></dd>
+		<dd><label>新密码：</label><input class="input" type="password" name="newpass" value="" /><div class="clear"></div></dd>
+		<dd><label>确认密码：</label><input class="input" type="password" name="chkpass" value="" /><div class="clear"></div></dd>
+		<!-- if $sys.is_vcode && function_exists("imagecreate") -->
+		<dd><label>验证码：</label><input class="vcode"  type="text" name="_chkcode" id="_chkcode" /><img src="" border="0" align="absmiddle" id="vcode" class="hand" /><div class="clear"></div></dd>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#vcode").phpok_vcode();
+			$("#vcode").click(function(){
+				$(this).phpok_vcode();
+			});
 		});
-	});
-	</script>
-	<!-- /if -->
-	<input type="submit" value="修改密码">
-	</form>
-	<div class="ui-body ui-body-a ui-corner-all">
-		<h3>说明</h3>
-		<p>请输入新密码及确认密码（即输入两次一次的新密码）</p>
-		<p>验证串24小时内有效，超过24小时请重新申请</p>
-	</div>
+		</script>
+		<!-- /if -->
+		<dd class="submit"><input type="submit" value="修改密码" name="" class="button blue"></dd>
+		</form>
+	</dl>
+	<dl class="box note">
+		<dt>说明</dt>
+		<dd>请输入新密码及确认密码（即输入两次一次的新密码）</dd>
+		<dd>验证串24小时内有效，超过24小时请重新申请</dd>
+		<!-- if $config.contactus.tel -->
+		<dd>我站客服电话：<span class="red">{$config.contactus.tel}</span></dd>
+		<!-- /if -->
+		<dd>&nbsp;</dd>
+		<dd>&nbsp;</dd>
+	</dl>
+	<div class="clear"></div>
 </div>
 <!-- include tpl=foot -->

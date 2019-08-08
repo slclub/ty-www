@@ -25,41 +25,72 @@ function invoice_setting(id)
 	var url = get_url('usercp','invoice_setting');
 	if(id>0){
 		url += "&id="+id;
+		var title = '{lang编辑发票信息}';
+	}else{
+		var title = '{lang添加发票信息}';
 	}
-	$.phpok.go(url);
+	$.dialog.open(url,{
+		'title':title,
+		'lock':true,
+		'width':'376px',
+		'height':'310px',
+		'ok':function(){
+			var iframe = this.iframe.contentWindow;
+			if (!iframe.document.body) {
+				alert('iframe还没加载完毕呢');
+				return false;
+			};
+			iframe.save();
+			return false;
+		},'okVal':title,
+		'cancel':function(){
+			return true;
+		}
+	});
 }
 </script>
-<div role="main" class="ui-content">
-	<!-- if $total<10 && $rslist && count($rslist)>3 -->
-	<a href="javascript:invoice_setting(0);void(0)" class="ui-btn ui-btn-a">+ 添加发票</a>
-	<!-- /if -->
-	<ul data-role="listview" data-inset="true">
-		<!-- loop from=$rslist key=$key value=$value id=$tmpid -->
-		<li data-role="list-divider">
-			#{$value.id} {$value.type}
-			<!-- if !$value.is_default -->
-			<span class="ui-li-count hand" onclick="invoice_default('{$value.id}')">设为默认</span>
-			<!-- else -->
-			<span class="ui-li-count red">默认地址</span>
-			<!-- /if -->
-		</li>
-		<li>
-			<div class="wrap"><b>发票抬头：</b>{$value.title}</div>
-			<!-- if $value.content -->
-			<div><b>发票内容：</b>{$value.content}</div>
-			<!-- /if -->
-			<!-- if $value.note -->
-			<div><b>备注：</b>{func nl2br $value.note}</div>
-			<!-- /if -->
-			<span class="ui-li-count" style="top:75%;right:0.3em;">
-				<a href="javascript:invoice_setting('{$value.id}');void(0);">编辑</a> | <a href="javascript:invoice_delete('{$value.id}');void(0);">删除</a>
-			</span>
-		</li>
-		<!-- /loop -->
-	</ul>
-	<!-- if $total<10 -->
-	<a href="javascript:invoice_setting(0);void(0)" class="ui-btn ui-btn-a">+ 添加发票</a>
-	<!-- /if -->
+<div class="cp">
+	<div class="left"><!-- include tpl=block_usercp --></div>
+	<div class="right">
+		<div class="pfw mbottom10">
+			<h3>发票设置
+				<!-- if $total<10 -->
+				<a href="javascript:invoice_setting(0);void(0)" class="more">添加发票</a>
+				<!-- /if -->
+			</h3>
+			<table class="list" width="100%">
+			<tr>
+				<th width="80px">发票类型</th>
+				<th class="lft">发票抬头</th>
+				<th class="lft">发票内容</th>
+				<th>&nbsp;</th>
+			</tr>
+			<!-- loop from=$rslist key=$key value=$value -->
+			<tr{if $rslist_id.num%2 == ''} class="o-dark"{else} class="o-white"{/if}>
+				<td height="26" class="center">{$value.type}</td>
+				<td>{$value.title}</td>
+				<td>{$value.content}</td>
+				<td align="center">
+					<a href="javascript:invoice_setting('{$value.id}');void(0);">编辑</a>
+					<a href="javascript:invoice_delete('{$value.id}');void(0);">删除</a>
+					<!-- if !$value.is_default -->
+					<a href="javascript:invoice_default('{$value.id}');void(0);">设为默认</a>
+					<!-- else -->
+					<span class="red">默认发票</span>
+					<!-- /if -->
+				</td>
+			</tr>
+			<!-- /loop -->
+			</table>
+		</div>
+		<div class="pfw mbottom10">
+			<h3>友情提示</h3>
+			<ul class="tip">
+				<li>未设置默认发票时，在提交订单中，默认是不要发票的</li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear"></div>
 </div>
 
 <!-- include tpl=foot -->

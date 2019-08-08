@@ -10,20 +10,32 @@ function fav_delete(id)
 	})
 }
 </script>
-<div role="main" class="ui-content">
-	<ul data-role="listview" data-split-icon="delete" data-inset="true" style="margin:0;">
-		<!-- if !$rslist -->
-		<li><p style="text-align:center;">暂无收藏信息</p></li>
-		<!-- /if -->
-		<!-- loop from=$rslist key=$key value=$value id=$tmpid -->
-		<li>
-			<a href="{url id=$value.lid/}" target="_blank">
-			<h2>{$value.title}</h2>
-			<p><b>收藏时间：</b>{func time_format $value.addtime}</p></a>
-			<a href="javascript:fav_delete('{$value.id}');void(0);"></a>
-		</li>
-		<!-- /loop -->
-	</ul>
-	<!-- include tpl=pagelist -->
+<div class="cp">
+	<div class="left"><!-- include tpl=block_usercp --></div>
+	<div class="right">
+		<div class="pfw mbottom10">
+			<h3>收藏夹</h3>
+			<table class="list" width="100%">
+			<tr>
+				<th class="lft">&nbsp;主题</th>
+				<th width="120px">收藏时间</th>
+				<th>&nbsp;</th>
+			</tr>
+			<!-- loop from=$rslist key=$key value=$value -->
+			<tr{if $rslist_id.num%2 == ''} class="o-dark"{else} class="o-white"{/if}>
+				<td height="26">&nbsp;{$value.title}</td>
+				<td align="center">{func time_format $value.addtime}</td>
+				<td align="center">
+					<a href="{url id=$value.lid/}" target="_blank">访问</a>
+					<a href="javascript:fav_delete('{$value.id}');void(0);">删除</a>
+				</td>
+			</tr>
+			<!-- /loop -->
+			</table>
+		</div>
+		<!-- include tpl=block_pagelist -->
+	</div>
+	<div class="clear"></div>
 </div>
+
 <!-- include tpl=foot -->

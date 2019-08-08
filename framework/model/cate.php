@@ -18,7 +18,7 @@ class cate_model_base extends phpok_model
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//取得单条分类信息

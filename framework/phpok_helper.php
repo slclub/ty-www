@@ -179,6 +179,7 @@ function password_check($pass,$password)
 	$list = explode(":",$password);
 	if($list[1]){
 		$chkpass = strlen($pass) != 32 ? md5($pass.$list[1]) : $pass;
+        file_put_contents('/tmp/t.log', $chkpass.' | '.$password);
 		return $chkpass == $list[0] ? true : false;
 	}else{
 		$chkpass = strlen($pass) != 32 ? md5($pass) : $pass;
@@ -999,5 +1000,14 @@ function token_userid()
 		return $GLOBALS['app']->model('user')->token_create($_SESSION['user_id']);
 	}
 	return $GLOBALS['app']->lib('token')->encode($info);
+}
+
+function lastest_date($str, $date_1)
+{
+    $week_now = time() + 7*86400;
+    if ($date_1 < $week_now) {
+        $date_1 = time();
+    }
+    return date($str, $date_1);
 }
 ?>

@@ -47,7 +47,7 @@ class cache
 	{
 		$this->save($this->key_id,$this->key_list);
 		$this->expired();
-		unset($this);
+		// ;
 	}
 
 	public function key_list($id,$value)

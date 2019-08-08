@@ -26,7 +26,7 @@ class token_lib
 
 	public function __destruct()
 	{
-		unset($this);
+		 ;
 	}
 
 	public function keyid($keyid='')

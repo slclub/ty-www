@@ -16,7 +16,7 @@ class file_lib
 
 	public function __destruct()
 	{
-		unset($this);
+		 ;
 	}
 
 	//读取数据

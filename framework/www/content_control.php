@@ -139,9 +139,11 @@ class content_control extends phpok_control
 		}
 		$this->model('list')->add_hits($rs["id"]);
 		$rs['hits'] = $this->model('list')->get_hits($rs['id']);
+		file_put_contents('/tmp/phpok.log', print_r([$id,$tpl,__METHOD__,$rs],1), 8);
 		$this->phpok_seo($rs);
 		$this->assign("rs",$rs);
 		$this->view($tpl);
+
 	}
 
 	private function content_format($rs)

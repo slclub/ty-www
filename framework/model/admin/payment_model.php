@@ -18,7 +18,7 @@ class payment_model extends payment_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//取得所支持的付款组

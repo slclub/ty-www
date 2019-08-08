@@ -18,7 +18,7 @@ class search_model_base extends phpok_model
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//取得查询结果数量

@@ -37,7 +37,7 @@ class cache_memcache extends cache
 		if($this->conn){
 			$this->conn->close();
 		}
-		unset($this);
+		 ;
 	}
 	
 	private function start()

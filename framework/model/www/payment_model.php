@@ -18,7 +18,7 @@ class payment_model extends payment_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	function get_all($site_id=0,$status=0,$mobile=0)

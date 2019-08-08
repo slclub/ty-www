@@ -18,7 +18,7 @@ class ext_model extends ext_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//添加验证

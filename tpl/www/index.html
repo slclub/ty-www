@@ -1,48 +1,87 @@
 <!-- include tpl=index_head highlight=1-->
-<!-- php:$list = phpok('picplayer') -->
-<div class="main" id="main">
-	<div class="banner1">
+
+<div class="main" id="main" style="">
+
+
+	<div class="banner-bac">
 		<div class="bd">
 			<ul>
-				<!-- loop from=$list.rslist key=$key value=$value -->
-				<li><a href="{$value.link}" target="{$value.target}" title="{$value.title}"><img src="{#images#}/blank.gif" _src="{$value.pic.filename}" alt="{$value.title}"/></a></li>
-				<!-- /loop -->
+				
+				<li><a href="{$value.link}" target="{$value.target}" title="{$value.title}"><img src="/images/n1_bg.jpg" _src="{$value.pic.filename}" alt="{$value.title}"/></a></li>
+				
 			</ul>
 		</div>
 	</div>
 	
 	<script type="text/javascript">
 	$(document).ready(function(){
-		$(".banner1").slide({'autoPlay':true,'switchLoad':'_src','mainCell':'.bd ul',effect:"fold",delayTime:3000,interTime:6000});
+		jQuery(".banner-bac").slideToggle({'autoPlay':true,'switchLoad':'_src','mainCell':'.bd ul',effect:"fold",delayTime:3000,interTime:6000});
 	});
 	</script>
+
+
+
 	<!-- <img width:1920px;height:1080px; id="main_img"> -->
 	<div style="position:absolute;width:100%;text-align:center;height:100%;left:0;top:0;z-index:1;">
 		<!-- include tpl=banner -->
-		<div style="margin-top:465px;float:right"><img src="images/Icon.png"></div>
-		<div class="zhuti">
-			<div style="width:1200px;height:100%;position:relative;margin:0 auto;">
-				<div class="left">
-					<div class="left_img" style="background:url('images/A_heroes.png')"><img src="images/A_K_normal.png"></div>
-					<div class="left_img" style="background:url('images/A_acttivity.png')"><img src="images/A_K_normal.png"></div>
-					<div class="left_img" style="background:url('images/A_vedio.png');position:relative;">
-						<img src="images/A_K_normal.png">
-						<div style="width:100%;height:100%;position:absolute;left:0;top:0;z-index:1000;opacity:0.5"><img src="images/A_heroes.png" width="100%"></div>
+		<!--main-body begin-->
+		<div class="main-box"> 
+			<!--<div style="margin-top:440px;float:right"><img src="images/Icon.png" width="300"></div>-->
+			<div class="zhuti" >
+				<div style="width:1200px;height:100%;position:relative;margin:0 auto;">
+					<div class = "left">
+					  <div id="chinaz">
+						<div class="banner-btn">
+							<a href="javascript:;" class="prevBtn" rel="nofollow"><i></i></a>
+							<a href="javascript:;" class="nextBtn" rel="nofollow"><i></i></a>
+						</div>
+						<ul class="banner-img">
+							<!-- php:$list = phpok('picplayer') -->
+							<!-- loop from=$list.rslist key=$key value=$value -->
+							<!-- <li><a href="{$value.link}" target="{$value.target}" title="{$value.title}"><img src="{#images#}/blank.gif" _src="{$value.pic.filename}" alt="{$value.title}"/></a></li> -->
+							<li>
+								<img src="{$value.pic.filename}" alt="{$value.title}">
+								<a href="{$value.link}"><p>{$value.title}</p></a><span></span>
+							</li>
+							<!-- /loop -->
+
+						</ul>
+						<ul class="banner-circle">
+							<!-- php:$list = phpok('picplayer') -->
+							<!-- php:$banner_select = 'selected' -->
+							<!-- loop from=$list.rslist key=$key value=$value -->
+							<li class="{$banner_select}">
+							<!-- php:$banner_select = '' -->
+								<a href="javascript:;" rel="nofollow">
+								<!-- <img src="{$value.pic.filename}"> --> {$value.title}</a>
+							</li>
+							<!-- /loop -->
+							
+						</ul>
+						<div class="banner-load"></div>
+					  </div>
 					</div>
-				
-				</div>
-		
-				<div class="right">
-					<div style="width:100%;float:left;text-align:left;"><img src="images/Apple.png" style="float:left;"><img src="images/Android.png" style="float:left;"></div>
-					<div style="width:100%;float:left;margin-top:10px;">
-						<div class="right_img"><img src="images/B_wechat.png"></div>
-						<div class="right_img"><img src="images/B_qq.png"></div>
-						<div class="right_img"><img src="images/B_tel.png"></div>
-						<div class="right_img"><img src="images/B_fourm.png"></div>
-					</div> 
+					<div class = "center">
+					<!-- include tpl=index_100010 -->
+					</div>
+					<div class="right">
+						<div><a href="/html/chongzhi.html"><img width = "240" src="res/201805/08/a89834ab9607d37b.png"></a></div>
+						<!--
+						<div class="icon-andriod"><img src="images/n1_android.jpg" alt="andriod"></div>
+						<div class="icon-ios"><img src="images/n1_apple.jpg" alt="ios"></div>
+						-->
+						<div class="icon-contact"><img src="images/n1_tel.jpg" alt="contact" style="opacity: 1"></div>
+					</div>
 				</div>
 			</div>
+
 		</div>
+		<!--main-body end-->
+
 	</div>
 </div>
 <!-- include tpl=foot -->
+
+
+<script type="text/javascript" src="js/chinaz.js" ></script>
+

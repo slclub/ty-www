@@ -74,6 +74,7 @@ class login_control extends phpok_control
 		if(!$rs){
 			$this->json(P_Lang('管理员信息不存在'));
 		}
+        
 		if(!password_check($pass,$rs["pass"])){
 			$this->json(P_Lang('管理员密码输入不正确'));
 		}

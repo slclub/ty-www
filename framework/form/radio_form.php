@@ -143,7 +143,7 @@ class radio_form extends _init_auto
 		//当类型为默认时
 		if($type == 'default' && $info){
 			$list = explode("\n",$info);
-			$rslist = "";
+			$rslist = [];
 			$i=0;
 			foreach($list AS $key=>$value){
 				if($value && trim($value)){

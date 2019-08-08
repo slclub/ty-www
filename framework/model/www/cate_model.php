@@ -18,7 +18,7 @@ class cate_model extends cate_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//读取当前分类信息

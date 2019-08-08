@@ -18,7 +18,7 @@ class project_model extends project_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//存储核心菜单

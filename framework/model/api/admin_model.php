@@ -18,7 +18,7 @@ class admin_model extends admin_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	function get_mail($ifsystem=0)

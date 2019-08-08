@@ -100,7 +100,7 @@ class session_sql extends session
 	public function __destruct()
 	{
 		$this->gc();
-		unset($this);
+		 ;
 	}
 }
 ?>

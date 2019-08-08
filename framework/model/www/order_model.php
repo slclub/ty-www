@@ -18,7 +18,7 @@ class order_model extends order_model_base
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//取得订单列表

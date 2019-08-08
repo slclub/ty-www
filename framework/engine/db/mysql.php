@@ -132,7 +132,7 @@ class db_mysql extends db
 		if($this->conn && is_resource($this->conn)){
 			mysql_close($this->conn);
 		}
-		unset($this);
+		 ;
 	}
 
 	public function set($name,$value)

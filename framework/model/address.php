@@ -18,7 +18,7 @@ class address_model_base extends phpok_model
 	public function __destruct()
 	{
 		parent::__destruct();
-		unset($this);
+		 ;
 	}
 
 	//取得指定会员的地址库列表
