@@ -9,3 +9,4 @@ Disallow: /res/
 Disallow: /tpl/
 Disallow: /plugins/
 
+Disallow: /plugins/
